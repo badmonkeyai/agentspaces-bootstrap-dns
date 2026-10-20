@@ -1,0 +1,10 @@
+AgentSpaces Bootstrap :: dnsjava
+Copyright 2026 Bad Monkey, Inc.
+
+This product includes software developed at
+Bad Monkey, Inc. (https://badmonkey.ai).
+
+This product depends on dnsjava (https://github.com/dnsjava/dnsjava),
+Copyright (c) 1998-2024, Brian Wellington and the dnsjava contributors,
+distributed under the BSD-2-Clause licence. dnsjava is not bundled; it is a
+declared dependency resolved from Maven Central.
