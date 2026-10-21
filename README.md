@@ -116,6 +116,28 @@ network test (`DnsJavaResolverNetworkTest`: `google.com` A,
 `_xmpp-client._tcp.jabber.org` SRV, and a DoH plus DNSSEC lookup of
 `www.iana.org`) is skipped unless `AGENTSPACES_NETWORK_TESTS=1` is set.
 
+## Releasing
+
+The `central-publish` profile attaches the sources and javadoc jars, signs
+every artifact with GPG (the passphrase from `MAVEN_GPG_PASSPHRASE`, or a GPG
+agent), and uploads through the Sonatype Central Portal using the `central`
+server id in `settings.xml`. The dry run builds the jars without signing or
+uploading anything:
+
+```sh
+mvn -Pcentral-publish -DskipTests -Dgpg.skip=true clean package
+```
+
+The release signs the artifacts and uploads them:
+
+```sh
+mvn -Pcentral-publish clean deploy
+```
+
+`autoPublish` is off, so the upload waits on the Portal as a validated bundle
+until you publish it there. Publish `agentspaces-bootstrap` 0.4.0 first, since
+this library implements its `DnsResolver` SPI.
+
 ## Licence
 
 Apache License 2.0, Copyright 2026 Bad Monkey, Inc. The dnsjava dependency is
