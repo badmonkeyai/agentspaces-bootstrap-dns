@@ -36,7 +36,7 @@ jobs:
           java-version: '21'
           cache: maven
       - name: Build, test, and attach sources and javadoc
-        # agentspaces-bootstrap 0.5.0 resolves from Maven Central. The unit tests
+        # agentspaces-bootstrap 0.6.0 resolves from Maven Central. The unit tests
         # use a stub resolver; the network test stays skipped because
         # AGENTSPACES_NETWORK_TESTS is unset. The publication profile runs unsigned
         # here, so a javadoc or packaging problem fails the pull request rather

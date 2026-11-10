@@ -22,11 +22,11 @@ BSD-2-Clause licence stands alone and the bootstrap project stays JDK-only.
 <dependency>
   <groupId>ai.badmonkey.agentspaces</groupId>
   <artifactId>agentspaces-bootstrap-dns</artifactId>
-  <version>0.5.0</version>
+  <version>0.6.0</version>
 </dependency>
 ```
 
-It brings `ai.badmonkey.agentspaces:agentspaces-bootstrap:0.5.0` and
+It brings `ai.badmonkey.agentspaces:agentspaces-bootstrap:0.6.0` and
 `dnsjava:dnsjava:3.6.3` (which depends on `slf4j-api`). Java 21.
 
 ## Selecting it
@@ -261,7 +261,7 @@ mvn -Pcentral-publish clean deploy
 ```
 
 `autoPublish` is off, so the upload waits on the Portal as a validated bundle
-until you publish it there. Publish `agentspaces-bootstrap` 0.5.0 first, since
+until you publish it there. Publish `agentspaces-bootstrap` 0.6.0 first, since
 this library implements its `DnsResolver` SPI.
 
 CI runs the same profile unsigned on every push, so a javadoc or packaging
