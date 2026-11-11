@@ -9,7 +9,7 @@ JNDI resolver cannot do:
 - **DNSSEC validation** against the IANA root trust anchors (KSK-2017 and
   KSK-2024, bundled), through dnsjava's `ValidatingResolver`. A validating
   resolver answers `authenticated() == true`, which is what lets the `dns`
-  locators supply a GroupId (SRAD DB-L-14).
+  locators supply a GroupId.
 - A configured server list (UDP with TCP fallback) or the platform's servers
   as dnsjava's `ResolverConfig` finds them.
 
@@ -98,8 +98,9 @@ returned as usual.
 The consequence: a validating resolver cannot look up names in unsigned zones.
 An operator whose zones are unsigned runs it with `dnssec(false)` (the
 default), where `authenticated()` is `false` and every answer is returned as
-the server gave it; the locators then treat a DNS-supplied GroupId the way the
-SRAD prescribes for unauthenticated DNS.
+the server gave it; the locators then treat a DNS-supplied GroupId as unauthenticated: they
+accept it only when the operator lists the locator in `accept-group-id-from`
+and sets `insecure-group-id: true`.
 
 The bundled anchors are the root's DS records as published at
 `https://data.iana.org/root-anchors/root-anchors.xml`; `trustAnchors(String)`
